@@ -1,0 +1,33 @@
+<html>
+<script src="E:\angularjsex\angular.min.js"></script>
+<script src="E:\angularjsex\angular-cookies.min.js">
+angular.module("myApp",['ngCookies']).controller("c1",function($scope,$cookieStore){
+$scope.un=" ";
+$scope.pw=" ";
+$scope.ck=true;
+$scope.fun2=function(){
+						$scope.pw=$cookieStore.get($scope.pw);
+						}
+$scope.fun1=function(){
+						if(ck==true)
+						{
+						$cookieStore.put($scope.pw,$scope.pw);
+						}
+					}						
+					});
+</script>
+
+
+<body ng-app="myApp" ng-controller="c1">
+UserName:<input type="text" ng-model="un" ng-blur="fun2()">
+<br>
+<br>
+Password:<input type="text" ng-model="pw">
+<br>
+<br>
+<input type="checkbox" ng-model="ck">Remember Me  {{ck}}
+<br>
+<br>
+<input type="button" value="Login" ng-click="fun1()">
+</body>
+</html>
